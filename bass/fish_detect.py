@@ -1,4 +1,5 @@
 import cv2
+import serial
 
 color = (255, 0, 255)
 cap = cv2.VideoCapture(0)
@@ -41,3 +42,22 @@ while True:
     cv2.imshow("Result", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+#store x + f, y + g as new variables for below
+
+"""
+%
+M106
+G00 X0Y0Z0  
+G80 
+G17 
+G21  
+G01 X5Y5 
+G04 P500
+G00 Z-5
+G04 P1000
+G00 Z0
+G04 P1000
+G01 X0Y0
+M02
+"""
