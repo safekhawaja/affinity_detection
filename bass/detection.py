@@ -15,7 +15,7 @@ cv2.namedWindow("Result")
 cv2.resizeWindow("Result", 640, 480 + 100)
 cv2.createTrackbar("Scale", "Result", 400, 1000, empty)
 cv2.createTrackbar("Neighbor", "Result", 8, 50, empty)
-cv2.createTrackbar("Min Area", "Result", 021652, 100000, empty)
+cv2.createTrackbar("Min Area", "Result", 0, 100000, empty)
 cv2.createTrackbar("Brightness", "Result", 180, 255, empty)
 
 cascade = cv2.CascadeClassifier('/Users/saif/Documents/GitHub/affinity_detection/bass/fish_cascade.xml')

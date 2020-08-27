@@ -3,7 +3,7 @@ import time
 
 ser = serial.Serial('/dev/tty.usbserial-14320', 115200)
 
-string = "G00\r\n"
+string = "G53 G0 X10 Y10 Z10 \r\n"
 
 cmd = bytes(string, 'utf-8')
 
