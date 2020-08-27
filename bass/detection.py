@@ -14,11 +14,11 @@ def empty(a):
 cv2.namedWindow("Result")
 cv2.resizeWindow("Result", 640, 480 + 100)
 cv2.createTrackbar("Scale", "Result", 400, 1000, empty)
-cv2.createTrackbar("Neig", "Result", 8, 50, empty)
-cv2.createTrackbar("Min Area", "Result", 0, 100000, empty)
+cv2.createTrackbar("Neighbor", "Result", 8, 50, empty)
+cv2.createTrackbar("Min Area", "Result", 021652, 100000, empty)
 cv2.createTrackbar("Brightness", "Result", 180, 255, empty)
 
-cascade = cv2.CascadeClassifier('/Users/Saif/Documents/GitHub/affinity/bass/fish_cascade.xml')
+cascade = cv2.CascadeClassifier('/Users/saif/Documents/GitHub/affinity_detection/bass/fish_cascade.xml')
 
 while True:
 
@@ -37,33 +37,9 @@ while True:
         minArea = cv2.getTrackbarPos("Min Area", "Result")
         if area > minArea:
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
-            cv2.putText(img, "Fish", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, color, 2)
+            cv2.putText(img, "Bass", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, color, 2)
             roi_color = img[y:y + h, x:x + w]
 
     cv2.imshow("Result", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-
-# store x + f, y + g as new variables for below
-
-"""
-%
-M106;
-G00 X0Y0Z0;
-G80;
-G17;
-G21; 
-G01 XN;
-G01 YM; 
-G04 P500;
-G00 ZH;
-G04 P1000;
-G00 Z0;
-G04 P1000;
-G01 X0Y0;
-M02;
-"""
-
-#serial upload
-
-
