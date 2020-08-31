@@ -69,8 +69,9 @@ M02;
 ser = serial.Serial('/dev/tty.usbserial-14320', 115200)
 
 string = "G00\r\n"
+#to add the rest from above once working reliably
 
-cmd = bytes(movement, 'utf-8')
+cmd = bytes(string, 'utf-8')
 
 time.sleep(2)
 ser.write(cmd)
