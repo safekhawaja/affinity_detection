@@ -1,9 +1,9 @@
 import serial
 import time
 
-ser = serial.Serial('/dev/tty.usbserial-14320', 115200)
+ser = serial.Serial('/dev/tty.usbserial-14310', 9600)
 
-string = "G53 G0 X10 Y10 Z10 \r\n"
+string = "G01 X1 Y1 Z1 \r\n"
 
 cmd = bytes(string, 'utf-8')
 
