@@ -1,5 +1,6 @@
 import cv2
 import numpy as np
+import time
 
 frameWidth = 640
 frameHeight = 480
@@ -8,7 +9,10 @@ cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10, 150)
 
+# Color detection HSV values from match_colors_get.py
 myColors = [[18, 46, 72, 40, 159, 238]]
+
+# Color printed to confirm detection coordinate
 myColorValues = [[255, 198, 145]]
 
 myPoints = []  # [x, y, colorID]
@@ -41,7 +45,7 @@ def getContours(img):
             peri = cv2.arcLength(cnt, True)
             approx = cv2.approxPolyDP(cnt, 0.02 * peri, True)
             x, y, w, h = cv2.boundingRect(approx)
-    # Adjust returned value for specific fish
+    # Adjust returned value relative to bounding box for specific fish (i.e. depends on orientation)
     return x + w // 2, y
 
 
@@ -59,6 +63,8 @@ while True:
             myPoints.append(newP)
     if len(myPoints) != 0:
         drawOnCanvas(myPoints, myColorValues)
+        time.sleep(1)
+    #use myPoints in g code
 
     cv2.imshow("Result", imgResult)
     if cv2.waitKey(1) and 0xFF == ord('q'):
