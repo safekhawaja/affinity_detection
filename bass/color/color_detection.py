@@ -8,8 +8,7 @@ cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10, 150)
 
-myColors = [18, 46, 72, 40, 159, 238]
-
+myColors = [[18, 46, 72, 40, 159, 238]]
 myColorValues = [[255, 198, 145]]
 
 myPoints = []  # [x, y, colorID]
@@ -47,7 +46,7 @@ def getContours(img):
 
 def drawOnCanvas(myPoints, myColorValues):
     for point in myPoints:
-        cv2.circle(imgResult, (point[0], point[1]), 10, myColorValues[point[2]], cv2.FILLED)
+        cv2.circle(imgResult, (point[0], point[1]), 5, myColorValues[point[2]], cv2.FILLED)
 
 
 while True:
