@@ -41,6 +41,7 @@ def getContours(img):
             peri = cv2.arcLength(cnt, True)
             approx = cv2.approxPolyDP(cnt, 0.02 * peri, True)
             x, y, w, h = cv2.boundingRect(approx)
+    # Adjust returned value for specific fish
     return x + w // 2, y
 
 
