@@ -90,7 +90,8 @@ while True:
             myPoints.append(newP)
             if len(myPoints) != 0:
                 draw(myPoints, myColorValues)
-                myStabPosition = "G01 X" + str(myPoints[0]) + " Y" + str(myPoints[1]) + "\r\n"
+                convertedPoints = [myPoints[0] / 10, myPoints[1] / 10]  # mapped to your respective printer and camera
+                myStabPosition = "G01 X" + str(convertedPoints[0]) + " Y" + str(convertedPoints[1]) + "\r\n"
                 stb_pos = bytes(myStabPosition, 'utf-8')
                 myPoints.remove(newP)
                 time.sleep(0.05)
