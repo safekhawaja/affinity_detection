@@ -12,10 +12,12 @@ cap.set(4, frameHeight)
 cap.set(10, 150)
 height = 5  # Required distance to stab fish in G90 mode
 
+start = "%\r\nO100\r\n"
 setup1 = "G90\r\n"
 setup2 = "G28\r\n"
 Stab = "Z" + str(height) + "\r\n"
 
+strt = bytes(start, 'utf-8')
 stp1 = bytes(setup1, 'utf-8')
 stp2 = bytes(setup2, 'utf-8')
 stb = bytes(Stab, 'utf-8')
@@ -67,21 +69,6 @@ def draw(myPoints, myColorValues):
         cv2.circle(imgResult, (point[0], point[1]), rad, myColorValues[point[2]], cv2.FILLED)
 
 
-def stab():
-    time.sleep(2)
-    ser.write(stp1)
-    time.sleep(1)
-    ser.write(stp2)
-    time.sleep(1)
-    ser.write(stb_pos)
-    time.sleep(1)
-    ser.write(stb)
-    time.sleep(1)
-    ser.write(stp2)
-    time.sleep(1)
-    ser.close()
-
-
 while True:
     success, img = cap.read()
     imgResult = img.copy()
@@ -89,14 +76,20 @@ while True:
     if len(newPoints) != 0:
         for newP in newPoints:
             myPoints.append(newP)
-            if len(myPoints) != 0:
-                draw(myPoints, myColorValues)
-                convertedPoints = [myPoints[0] // 10, myPoints[1] // 10]  # mapped to your respective printer and camera
-                myStabPosition = "G01 X" + str(convertedPoints[0]) + " Y" + str(convertedPoints[1]) + "\r\n"
-                stb_pos = bytes(myStabPosition, 'utf-8')
-                myPoints.remove(newP)
-                time.sleep(0.05)
-                stab()
+            draw(myPoints, myColorValues)
+            convertedPoints = [myPoints[0][0] // 10,
+                               myPoints[0][1] // 10]  # pixels mapped to your respective printer and camera
+            myStabPosition = "G01 X" + str(convertedPoints[0][0]) + " Y" + str(convertedPoints[0][1]) + "\r\n"
+            stb_pos = bytes(myStabPosition, 'utf-8')
+            myPoints.remove(newP)
+
+            def stab():
+                commands = [strt, stp1, stp2, stb_pos, stb, stp2]
+                for command in commands:
+                    ser.write(command)
+                    time.sleep(1)
+            stab()
+            ser.close()
 
     cv2.imshow("Result", imgResult)
     if cv2.waitKey(1) and 0xFF == ord('q'):
