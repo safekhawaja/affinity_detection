@@ -1,24 +1,13 @@
 import cv2
 import numpy as np
 import time
-import serial
 
-ser = serial.Serial('/dev/tty.usbserial-14320', 115200)  # note: declaring opens the port
 frameWidth = 640
 frameHeight = 480
 cap = cv2.VideoCapture(0)
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10, 150)
-height = 5  # Required distance to stab fish in G90 mode
-
-setup1 = "G90\r\n"
-setup2 = "G28\r\n"
-Stab = "Z" + str(height) + "\r\n"
-
-stp1 = bytes(setup1, 'utf-8')
-stp2 = bytes(setup2, 'utf-8')
-stb = bytes(Stab, 'utf-8')
 
 # Color detection HSV values from match_colors_get.py (can use multiple)
 myColors = [[18, 46, 72, 40, 159, 238]]
@@ -60,26 +49,11 @@ def contours_find(img):
     return x + w // 2, y
 
 
-# Adjust radius for visual display depending on height of camera from printing floor
+# Adjust radius for visual display depending on height of camera from block
 def draw(myPoints, myColorValues):
     for point in myPoints:
         rad = 5
         cv2.circle(imgResult, (point[0], point[1]), rad, myColorValues[point[2]], cv2.FILLED)
-
-
-def stab():
-    time.sleep(2)
-    ser.write(stp1)
-    time.sleep(1)
-    ser.write(stp2)
-    time.sleep(1)
-    ser.write(stb_pos)
-    time.sleep(1)
-    ser.write(stb)
-    time.sleep(1)
-    ser.write(stp2)
-    time.sleep(1)
-    ser.close()
 
 
 while True:
@@ -91,12 +65,8 @@ while True:
             myPoints.append(newP)
             if len(myPoints) != 0:
                 draw(myPoints, myColorValues)
-                convertedPoints = [myPoints[0] / 10, myPoints[1] / 10]  # mapped to your respective printer and camera
-                myStabPosition = "G01 X" + str(convertedPoints[0]) + " Y" + str(convertedPoints[1]) + "\r\n"
-                stb_pos = bytes(myStabPosition, 'utf-8')
                 myPoints.remove(newP)
-                time.sleep(0.05)
-                stab()
+                time.sleep(0.1)
 
     cv2.imshow("Result", imgResult)
     if cv2.waitKey(1) and 0xFF == ord('q'):
