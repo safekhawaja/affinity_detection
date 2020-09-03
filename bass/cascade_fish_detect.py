@@ -19,7 +19,7 @@ cv2.createTrackbar("Neighbor", "Result", 8, 50, empty)
 cv2.createTrackbar("Min Area", "Result", 0, 100000, empty)
 cv2.createTrackbar("Brightness", "Result", 180, 255, empty)
 
-cascade = cv2.CascadeClassifier('/Users/Saif/Documents/GitHub/affinity/bass/fish_cascade.xml')
+cascade = cv2.CascadeClassifier('/Users/Saif/Documents/GitHub/affinity/bass/fish_cascade/fish_cascade.xml')
 
 while True:
 
