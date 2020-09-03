@@ -35,9 +35,9 @@ def color_find(img, myColors, myColorValues):
     imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     count = 0
     newPoints = []
-    for color in myColors:
-        lower = np.array(color[0:3])
-        upper = np.array(color[3:6])
+    for clr in myColors:
+        lower = np.array(clr[0:3])
+        upper = np.array(clr[3:6])
         mask = cv2.inRange(imgHSV, lower, upper)
         x, y = contours_find(mask)
         cv2.circle(imgResult, (x, y), 10, myColorValues[count], cv2.FILLED)
@@ -64,9 +64,9 @@ def contours_find(img):
 
 # Adjust radius for visual display depending on height of camera from printing floor
 def draw(myPoints, myColorValues):
-    for point in myPoints:
+    for pnt in myPoints:
         rad = 5
-        cv2.circle(imgResult, (point[0], point[1]), rad, myColorValues[point[2]], cv2.FILLED)
+        cv2.circle(imgResult, (pnt[0], pnt[1]), rad, myColorValues[pnt[2]], cv2.FILLED)
 
 
 while True:
@@ -77,20 +77,21 @@ while True:
         for newP in newPoints:
             myPoints.append(newP)
             draw(myPoints, myColorValues)
+            # pixels mapped to your respective printer and camera (in the form of aX + b)
             convertedPoints = [myPoints[0][0] // 10,
-                               myPoints[0][1] // 10]  # pixels mapped to your respective printer and camera
+                               myPoints[0][1] // 10]
             myStabPosition = "G01 X" + str(convertedPoints[0][0]) + " Y" + str(convertedPoints[0][1]) + "\r\n"
             stb_pos = bytes(myStabPosition, 'utf-8')
             myPoints.remove(newP)
 
             def stab():
                 commands = [strt, stp1, stp2, stb_pos, stb, stp2]
-                for command in commands:
-                    ser.write(command)
+                for cmd in commands:
+                    ser.write(cmd)
                     time.sleep(1)
             stab()
-            ser.close()
 
     cv2.imshow("Result", imgResult)
     if cv2.waitKey(1) and 0xFF == ord('q'):
+        ser.close()
         break
