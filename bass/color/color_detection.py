@@ -63,9 +63,10 @@ while True:
     if len(newPoints) != 0:
         for newP in newPoints:
             myPoints.append(newP)
-    if len(myPoints) != 0:
-        draw(myPoints, myColorValues)
-        time.sleep(1)
+            if len(myPoints) != 0:
+                draw(myPoints, myColorValues)
+                myPoints.remove(newP)
+                time.sleep(0.1)
     # use myPoints in g code
 
     cv2.imshow("Result", imgResult)
