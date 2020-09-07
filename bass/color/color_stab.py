@@ -10,11 +10,11 @@ cap = cv2.VideoCapture(0)
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10, 150)
-height = 5  # Required distance to stab fish in G90 mode
+height = 45  # Required end distance to stab fish in G90 mode
 
 start = "%\r\nO100\r\n"
 setup1 = "G90\r\n"
-setup2 = "G28\r\n"
+setup2 = "G01 X0 Y0 Z75\r\n"
 Stab = "Z" + str(height) + "\r\n"
 
 strt = bytes(start, 'utf-8')

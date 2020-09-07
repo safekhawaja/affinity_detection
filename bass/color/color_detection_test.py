@@ -4,13 +4,13 @@ import time
 
 frameWidth = 640
 frameHeight = 480
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("/Users/saif/Downloads/ezgif.com-resize.mp4")
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 cap.set(10, 150)
 
 # Color detection HSV values from match_colors_get.py (can use multiple)
-myColors = [[18, 46, 72, 40, 159, 238]]
+myColors = [[0, 0, 81, 74, 255, 255]]
 
 # Color printed to confirm detection coordinate (again, can use multiple)
 myColorValues = [[255, 198, 145]]
@@ -46,7 +46,7 @@ def contours_find(img):
             peri = cv2.arcLength(cnt, True)
             approx = cv2.approxPolyDP(cnt, 0.02 * peri, True)
             x, y, w, h = cv2.boundingRect(approx)
-    return x + w // 2, y
+    return x + 50, y + 30
 
 
 # Adjust radius for visual display depending on height of camera from block

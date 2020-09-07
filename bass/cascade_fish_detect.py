@@ -2,10 +2,23 @@ import cv2
 import serial
 import time
 
+ser = serial.Serial('/dev/tty.usbserial-14320', 115200)  # note: declaring opens the port
+
 color = (255, 0, 255)
 cap = cv2.VideoCapture(0)
 cap.set(3, 640)
 cap.set(4, 480)
+
+height = 45  # Required end point to stab fish in G90
+
+start = "%\r\nO100\r\n"
+setup1 = "G90\r\n"
+setup2 = "G01 X0 Y0 Z75\r\n"
+Stab = "Z" + str(height) + "\r\n"
+strt = bytes(start, 'utf-8')
+stp1 = bytes(setup1, 'utf-8')
+stp2 = bytes(setup2, 'utf-8')
+stb = bytes(Stab, 'utf-8')
 
 
 def empty(a):
@@ -40,42 +53,20 @@ while True:
             cv2.rectangle(img, (x, y), (x + w, y + h), color, 3)
             cv2.putText(img, "Bass", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX_SMALL, 1, color, 2)
             roi_color = img[y:y + h, x:x + w]
-            n = (x + 30)/100
-            m = (y + 30)/100
-            #need to draw another on the neck point
+            convertedPoints = [(x + w - 30) / 100, y + 30 / 100]
+            myStabPosition = "G01 X" + str(convertedPoints[0][0]) + " Y" + str(convertedPoints[0][1]) + "\r\n"
+            stb_pos = bytes(myStabPosition, 'utf-8')
+
+
+            def stab():
+                commands = [strt, stp1, stp2, stb_pos, stb, stp2]
+                for cmd in commands:
+                    ser.write(cmd)
+                    time.sleep(2)
+
+
+            stab()
 
     cv2.imshow("Result", img)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
-
-movement = ("""
-%
-M106;
-G00 X0Y0Z0;
-G80;
-G17;
-G21; 
-G01 X""" + str(n) + """;
-G01 Y""" + str(m) + """; 
-G04 P500;
-G00 Z-H;
-G04 P1000;
-G00 Z0;
-G04 P1000;
-G01 X0Y0;
-M02;
-""")
-
-ser = serial.Serial('/dev/tty.usbserial-14320', 115200)
-
-ser.isOpen()
-
-string = "G00\r\n"
-#to add the rest from above once working reliably
-
-cmd = bytes(string, 'utf-8')
-
-time.sleep(2)
-ser.write(cmd)
-time.sleep(1)
-ser.close()

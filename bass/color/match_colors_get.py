@@ -3,7 +3,7 @@ import numpy as np
 
 frameWidth = 50
 frameHeight = 50
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture("/Users/saif/Downloads/ezgif.com-resize.mp4")
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 
