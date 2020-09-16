@@ -88,7 +88,7 @@ while True:
                 commands = [strt, stp1, stp2, stb_pos, stb, stp2]
                 for cmd in commands:
                     ser.write(cmd)
-                    time.sleep(1)
+                    time.sleep(2)
             stab()
 
     cv2.imshow("Result", imgResult)

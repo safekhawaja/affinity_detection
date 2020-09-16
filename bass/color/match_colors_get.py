@@ -3,7 +3,7 @@ import numpy as np
 
 frameWidth = 50
 frameHeight = 50
-cap = cv2.VideoCapture("/Users/saif/Downloads/ezgif.com-resize.mp4")
+cap = cv2.VideoCapture("/Users/saif/Documents/final fish shooting/fish recordings/resized3.mp4")
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 
@@ -27,11 +27,8 @@ while True:
     imgHsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     h_min = cv2.getTrackbarPos("HUE Min", "HSV")
-    #99
     h_max = cv2.getTrackbarPos("HUE Max", "HSV")
-    #123
     s_min = cv2.getTrackbarPos("SAT Min", "HSV")
-#134
     s_max = cv2.getTrackbarPos("SAT Max", "HSV")
     v_min = cv2.getTrackbarPos("VALUE Min", "HSV")
     v_max = cv2.getTrackbarPos("VALUE Max", "HSV")
