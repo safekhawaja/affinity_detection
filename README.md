@@ -2,7 +2,7 @@
  
 Source code for Design for Ethical Fishing.
 
-STEPS:
+## STEPS:
 
 1. Run match_colors_get.py to obtain HSV values, adjusting input webcam or video for your setup.
 2. Run color_detection_test.py to test and adjust points for new species. 
