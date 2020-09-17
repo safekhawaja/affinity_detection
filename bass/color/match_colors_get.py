@@ -3,7 +3,7 @@ import numpy as np
 
 frameWidth = 50
 frameHeight = 50
-cap = cv2.VideoCapture("/Users/saif/Documents/final fish shooting/fish recordings/resized3.mp4")
+cap = cv2.VideoCapture("/Users/saif/Documents/DFEF Final Submission/final fish shooting/resized recordings/resizeoverhead2.mp4")
 cap.set(3, frameWidth)
 cap.set(4, frameHeight)
 

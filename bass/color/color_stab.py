@@ -3,7 +3,7 @@ import numpy as np
 import time
 import serial
 
-ser = serial.Serial('/dev/tty.usbserial-14320', 115200)  # note: declaring opens the port
+ser = serial.Serial('/dev/tty.usbserial-14320', 115200)  # note for review: declaring the port opens the port
 frameWidth = 640
 frameHeight = 480
 cap = cv2.VideoCapture(0)
