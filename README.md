@@ -2,8 +2,6 @@
  
 Source code for Design for Ethical Fishing, submitted to ACM SIGCHI 2021.
 
----
-
 ## Steps:
 
 1. Run match_colors_get.py to obtain HSV values, adjusting input webcam or video for your setup.
