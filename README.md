@@ -2,7 +2,7 @@
  
 Source code for Design for Ethical Fishing, submitted to ACM SIGCHI 2021.
 
-![](fish-2.gif)
+![](fishgif.gif)
 
 ## Steps:
 
