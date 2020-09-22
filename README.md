@@ -1,6 +1,6 @@
 # How To Kill A Fish
  
-Source code for Design for Ethical Fishing, submitted to ACM SIGCHI 2021.
+Source code for Design for Ethical Fishing, submitted to ACM SIGCHI 2021.[Informational Video](https://drive.google.com/file/d/1XWHXH9ygHLdgQ2DVScSIFX1xP1ImnFDS/view?usp=sharing)
 
 ![](fishgif.gif)
 
