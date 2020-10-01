@@ -1,6 +1,6 @@
 # How To Kill A Fish
  
-Source code for Design for Ethical Fishing, submitted to ACM SIGCHI 2021. HTKAF is a robotic ikejime tool that allows fishermen to slaughter fish painlessly.
+Source code for one of the projects described in Design for Ethical Fishing. HTKAF is a robotic ikejime tool that allows fishermen to slaughter fish painlessly.
 
 [Informational Video](https://drive.google.com/file/d/1XWHXH9ygHLdgQ2DVScSIFX1xP1ImnFDS/view?usp=sharing).
 
@@ -9,7 +9,7 @@ Source code for Design for Ethical Fishing, submitted to ACM SIGCHI 2021. HTKAF 
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-* You have installed the latest versions of Python (this was run on Python 3.8), of OpenCV-Python, and of PySerial. 
+* You have installed the latest versions of Python (this was built on Python 3.8), of OpenCV-Python, and of PySerial. 
 * Any functioning OS that can run all of the above.
 * An open-source 3D printer or misc. gantry system (for which you will need to adjust the values).
 * A functioning, moderate quality color camera.
