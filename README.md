@@ -6,7 +6,7 @@ Source code for one of the projects described in Design for Ethical Fishing. HTK
 
 ![](fishgif.gif)
 
-## Prerequisites
+## Prerequisites:
 
 Before you begin, ensure you have met the following requirements:
 * You have installed the latest versions of Python (this was built on Python 3.8), of OpenCV-Python, and of PySerial. 
@@ -23,7 +23,7 @@ Before you begin, ensure you have met the following requirements:
 4. Run color_stab.py with a stunned fish and kill the fish. Enjoy the high quality meat!
 
 
-## Contributing to HTKAF
+## Contributing to HTKAF:
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
 To contribute to HTKAF, follow these steps:
 
@@ -35,7 +35,7 @@ To contribute to HTKAF, follow these steps:
 
 Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
-## Contributors
+## Contributors:
 
 Thanks to the following people who have contributed to this project:
 
@@ -43,7 +43,7 @@ Thanks to the following people who have contributed to this project:
 * [@liningyao](https://morphingmatter.cs.cmu.edu) 🐛
 
 
-## Contact
+## Contact:
 
 If you want to contact me you can reach me at <saifnk@wharton.upenn.edu>.
 
