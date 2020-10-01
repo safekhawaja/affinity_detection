@@ -17,7 +17,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Execution:
 
-1. Set up hardware as described in the paper. 
+1. Set up hardware as described in the paper. Obtain your hardware specifications e.g. baud rate. 
 2. Run match_colors_get.py to obtain HSV values, adjusting input webcam or video for your setup. Test this with color_detection_test.py and adjust points as required.
 3. Adjust color_stab.py for the vertical heights and horizontal widths of your gantry's dimensions. The video input and other specifications in setup should also be working, so you should test a sequence for your setup before putting live fish in.
 4. Run color_stab.py with a stunned fish and kill the fish. Enjoy the high quality meat!
