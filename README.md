@@ -20,17 +20,10 @@ Before you begin, ensure you have met the following requirements:
 3. Run color_stab.py after adjusting heights, video input and other specifications in setup sequence for your setup.
 4. Kill the fish!
 
-<!--- These are examples. See https://shields.io for others or to customize this set of shields. You might want to include dependencies, project status and licence info here --->
-![GitHub repo size](https://img.shields.io/github/repo-size/scottydocs/README-template.md)
-![GitHub contributors](https://img.shields.io/github/contributors/scottydocs/README-template.md)
-![GitHub stars](https://img.shields.io/github/stars/scottydocs/README-template.md?style=social)
-![GitHub forks](https://img.shields.io/github/forks/scottydocs/README-template.md?style=social)
-![Twitter Follow](https://img.shields.io/twitter/follow/scottydocs?style=social)
 
-
-## Contributing to <project_name>
+## Contributing to HTKAF
 <!--- If your README is long or you have some specific process or steps you want contributors to follow, consider creating a separate CONTRIBUTING.md file--->
-To contribute to <project_name>, follow these steps:
+To contribute to HTKAF, follow these steps:
 
 1. Fork this repository.
 2. Create a branch: `git checkout -b <branch_name>`.
@@ -55,4 +48,4 @@ If you want to contact me you can reach me at <saifnk@wharton.upenn.edu>.
 ## License
 <!--- If you're not sure which open license to use see https://choosealicense.com/--->
 
-This project uses the following license: [<GNU GPLv3>](<https://choosealicense.com/licenses/gpl-3.0/>).
+This project uses the following license: [GNU GPLv3](<https://choosealicense.com/licenses/gpl-3.0/>).
