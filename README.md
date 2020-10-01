@@ -9,16 +9,18 @@ Source code for Design for Ethical Fishing, submitted to ACM SIGCHI 2021. HTKAF 
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
-* You have installed the latest version of Python (this was run on Python 3.8)
-* Any functioning OS that can run above.
+* You have installed the latest versions of Python (this was run on Python 3.8), of OpenCV-Python, and of PySerial. 
+* Any functioning OS that can run all of the above.
+* An open-source 3D printer or misc. gantry system (for which you will need to adjust the values).
+* A functioning, moderate quality color camera.
 * You have read this guide.
 
-## Steps:
+## Execution:
 
-1. Run match_colors_get.py to obtain HSV values, adjusting input webcam or video for your setup.
-2. Run color_detection_test.py to test and adjust points for new species. 
-3. Run color_stab.py after adjusting heights, video input and other specifications in setup sequence for your setup.
-4. Kill the fish!
+1. Set up hardware as described in the paper. 
+2. Run match_colors_get.py to obtain HSV values, adjusting input webcam or video for your setup. Test this with color_detection_test.py and adjust points as required.
+3. Adjust color_stab.py for the vertical heights and horizontal widths of your gantry's dimensions. The video input and other specifications in setup should also be working, so you should test a sequence for your setup before putting live fish in.
+4. Run color_stab.py with a stunned fish and kill the fish. Enjoy the high quality meat!
 
 
 ## Contributing to HTKAF
