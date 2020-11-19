@@ -40,7 +40,7 @@ Alternatively see the GitHub documentation on [creating a pull request](https://
 Thanks to the following people who have contributed to this project:
 
 * [@safekhawaja](https://github.com/safekhawaja) 📖🐛
-* [@liningyao](https://morphingmatter.cs.cmu.edu) 🐛
+* [@liningyao](https://morphingmatter.cs.cmu.edu/lining-yao/) 🐛
 
 
 ## Contact:
